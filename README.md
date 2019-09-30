@@ -9,6 +9,7 @@ Everything runs on Ubuntu 18.04 LTS
 * Gazebo http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
 * Gazebo_ros_pkgs - install by command:
   `sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control`
+* `ros-melodic-hector-gazebo-plugins`
 ### Use:
 * `$ roscore`
 * `$ rosrun gazebo_ros gazebo basicSimulation.world --verbose`
