@@ -1,0 +1,8 @@
+prefix=/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/install
+
+Name: autonomous
+Description: Description of autonomous
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/install/lib 
+Requires: 

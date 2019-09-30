@@ -1,0 +1,2 @@
+autonomous
+-DCATKIN_DEVEL_PREFIX=/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/devel -DCMAKE_INSTALL_PREFIX=/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/install -G Unix Makefiles
