@@ -10,6 +10,9 @@ Everything runs on Ubuntu 18.04 LTS
 * Gazebo_ros_pkgs - install by command:
   `sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control`
 * `ros-melodic-hector-gazebo-plugins`
+* Gazebo searches for models using env variable `GAZEBO_MODEL_PATH`. Therefore, you need to add the parent directory of `basic_rover` to the path.
+`echo "export GAZEBO_MODEL_PATH=/path/to/models/:$GAZEBO_MODEL_PATH" >> ~/.bashrc`
+
 ### Use:
 * `$ roscore`
 * `$ rosrun gazebo_ros gazebo basicSimulation.world --verbose`
