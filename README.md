@@ -17,3 +17,6 @@ Everything runs on Ubuntu 18.04 LTS
 * `$ roscore`
 * `$ rosrun gazebo_ros gazebo basicSimulation.world --verbose`
 * Use rviz and rostopic to see the sensor data stream out.
+* Skid Steer Drive Controller plugin is used for primitive driving of rover. 
+  * Can be driven graphically using `$ rosrun rqt_robot_steering rqt_robot_steering` or by publishing to `/cmd_vel` topic: `$ rostopic pub  /cmd_vel geometry_msgs/Twist '[<linear_speed>, 0, 0]' '[0, 0, <angular_speed>]'`
+  * Also provides odometry data on topic `\odom`
