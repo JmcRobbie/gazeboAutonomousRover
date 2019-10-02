@@ -216,33 +216,33 @@
           <scale>1 1 1</scale>
           <link name='chassis'>
             <pose frame=''>-3.09057 -0.217345 0.149995 0 -1.1e-05 0.004117</pose>
-            <velocity>-0.000684 -0.000418 -0.005387 0.000175 -0.0108 4.7e-05</velocity>
-            <acceleration>-0.012207 -0.382269 -4.75914 -2.70634 0.904891 2.48948</acceleration>
-            <wrench>-0.122071 -3.82269 -47.5914 0 -0 0</wrench>
+            <velocity>-0 0 0 0 0 0</velocity>
+            <acceleration>-0 0 0 0 0 0</acceleration>
+            <wrench>-0 0 0 0 0 0</wrench>
           </link>
           <link name='wheel_front_left'>
             <pose frame=''>-2.5918 0.08271 0.15 -1.57081 0.527313 0.003955</pose>
-            <velocity>-0.000695 -0.000349 1e-06 0.002379 -0.002886 -0.006553</velocity>
-            <acceleration>0.181274 -0.579166 -0.37476 0.686507 0.22911 0.185514</acceleration>
-            <wrench>0.090637 -0.289583 -0.18738 0 -0 0</wrench>
+            <velocity>-0 0 0 0 0 0</velocity>
+            <acceleration>-0 0 0 0 0 0</acceleration>
+            <wrench>-0 0 0 0 0 0</wrench>
           </link>
           <link name='wheel_front_right'>
             <pose frame=''>-2.58935 -0.513284 0.15 -1.5708 0.476555 0.004158</pose>
-            <velocity>-0.00069 -0.000371 -4.6e-05 0.002419 0.00282 -0.027828</velocity>
-            <acceleration>-0.207591 -0.504505 -0.861025 0.180349 -0.202367 -1.38434</acceleration>
-            <wrench>-0.103796 -0.252253 -0.430512 0 -0 0</wrench>
+            <velocity>-0 0 0 0 0 0</velocity>
+            <acceleration>-0 0 0 0 0 0</acceleration>
+            <wrench>-0 0 0 0 0 0</wrench>
           </link>
           <link name='wheel_rear_left'>
             <pose frame=''>-3.59179 0.078593 0.14999 -1.5708 0.038533 0.004117</pose>
-            <velocity>-0.000696 -0.000379 -0.010751 0.000397 -0.006192 0.000176</velocity>
-            <acceleration>0.193968 -0.056721 -10.9417 -1.73329 -0.00714 -1.37709</acceleration>
-            <wrench>0.096984 -0.02836 -5.47084 0 -0 0</wrench>
+            <velocity>-0 0 0 0 0 0</velocity>
+            <acceleration>-0 0 0 0 0 0</acceleration>
+            <wrench>-0 0 0 0 0 0</wrench>
           </link>
           <link name='wheel_rear_right'>
             <pose frame=''>-3.58934 -0.517402 0.149989 -1.5708 0.045387 0.004116</pose>
-            <velocity>-0.00067 -0.000416 -0.010849 0.000453 -0.003212 0.000171</velocity>
-            <acceleration>-0.221713 -0.099591 -10.9625 -1.61855 -0.006667 -1.19819</acceleration>
-            <wrench>-0.110857 -0.049795 -5.48127 0 -0 0</wrench>
+            <velocity>-0 0 0 0 0 0</velocity>
+            <acceleration>-0 0 0 0 0 0</acceleration>
+            <wrench>-0 0 0 0 0 0</wrench>
           </link>
         </model>
         <model name='kinect'>
@@ -250,9 +250,9 @@
           <scale>1 1 1</scale>
           <link name='link'>
             <pose frame=''>-2.69057 -0.215699 0.399999 0 -1.1e-05 0.004117</pose>
-            <velocity>-0.003388 -0.000447 -0.001058 0.000178 -0.010811 4.9e-05</velocity>
-            <acceleration>-2.59313 -0.732606 -1.66107 -2.56684 0.90376 2.46841</acceleration>
-            <wrench>-0.259313 -0.073261 -0.166107 0 -0 0</wrench>
+            <velocity>-0 0 0 0 0 0</velocity>
+            <acceleration>-0 0 0 0 0 0</acceleration>
+            <wrench>-0 0 0 0 0 0</wrench>
           </link>
         </model>
       </model>
@@ -261,9 +261,9 @@
         <scale>1 0.125965 1</scale>
         <link name='link'>
           <pose frame=''>-0.448057 -0.439716 0.5 -1e-06 0 -0.420749</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>-5.80778 3.02791 6.453 0.228144 0.949996 -0.001417</acceleration>
-          <wrench>-5.80778 3.02791 6.453 0 -0 0</wrench>
+            <velocity>-0 0 0 0 0 0</velocity>
+            <acceleration>-0 0 0 0 0 0</acceleration>
+            <wrench>-0 0 0 0 0 0</wrench>
         </link>
       </model>
       <model name='unit_sphere'>
@@ -271,9 +271,9 @@
         <scale>0.39619 0.39619 0.39619</scale>
         <link name='link'>
           <pose frame=''>-1.42329 0.469946 0.198095 0 -0 0</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
+          <velocity>0 0 0 0 0 0</velocity>
+          <acceleration>0 0 0 0 0 0</acceleration>
+          <wrench>0 0 0 0 0 0</wrench>
         </link>
       </model>
       <light name='sun'>
