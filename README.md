@@ -4,7 +4,6 @@ A repo to manage the codebase for the testing of a rover in a simulated space.
 
 Everything runs on Ubuntu 18.04 LTS
 
-*You will need to install*: 
 * Ros melodic 
 * Gazebo http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
 * Gazebo_ros_pkgs - install by command:
@@ -12,6 +11,9 @@ Everything runs on Ubuntu 18.04 LTS
 * `ros-melodic-hector-gazebo-plugins`
 * Gazebo searches for models using env variable `GAZEBO_MODEL_PATH`. Therefore, you need to add the parent directory of `basic_rover` to the path.
 `echo "export GAZEBO_MODEL_PATH=/path/to/models/:$GAZEBO_MODEL_PATH" >> ~/.bashrc`
+* You will need the robot control packa
+### Optional tools
+* the ros rqt robot control tool for steering the rover via a gui: `$ sudo apt-get install ros-melodic-rqt-robot-steering`
 
 ### Use:
 * `$ roscore`
