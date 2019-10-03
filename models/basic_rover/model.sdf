@@ -338,7 +338,7 @@
         </axis>
       </joint>
       <pose frame=''>-0.2 0 -0.2 -0 -0 -0</pose>
-      <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+      <plugin name="skid_steer_drive_controller_pid" filename="libgazebo_ros_skid_steer_drive_pid.so">
         <updateRate>0.0</updateRate>
         <robotNamespace>/</robotNamespace>
         <leftFrontJoint>wheel_front_left_steer_spin</leftFrontJoint>
