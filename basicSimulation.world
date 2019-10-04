@@ -83,7 +83,7 @@
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
     <include>
-      <uri>model://basic_rover</uri>
+      <uri>models/basic_rover</uri>
       <pose frame=''>-2.90105 -0.225101 0 0 -0 0</pose>
       <name>test</name>
     </include>

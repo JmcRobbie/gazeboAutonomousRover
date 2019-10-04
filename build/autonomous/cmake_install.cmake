@@ -1,8 +1,8 @@
-# Install script for directory: /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/src/autonomous
+# Install script for directory: /home/jackson/gazeboAutonomousRover/src/autonomous
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jackson/gazeboAutonomousRover/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -38,17 +38,17 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build/autonomous/catkin_generated/installspace/autonomous.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/home/jackson/gazeboAutonomousRover/build/autonomous/catkin_generated/installspace/autonomous.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/autonomous/cmake" TYPE FILE FILES
-    "/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build/autonomous/catkin_generated/installspace/autonomousConfig.cmake"
-    "/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build/autonomous/catkin_generated/installspace/autonomousConfig-version.cmake"
+    "/home/jackson/gazeboAutonomousRover/build/autonomous/catkin_generated/installspace/autonomousConfig.cmake"
+    "/home/jackson/gazeboAutonomousRover/build/autonomous/catkin_generated/installspace/autonomousConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/autonomous" TYPE FILE FILES "/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/src/autonomous/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/autonomous" TYPE FILE FILES "/home/jackson/gazeboAutonomousRover/src/autonomous/package.xml")
 endif()
 

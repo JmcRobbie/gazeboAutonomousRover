@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/src
+CMAKE_SOURCE_DIR = /home/jackson/gazeboAutonomousRover/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build
+CMAKE_BINARY_DIR = /home/jackson/gazeboAutonomousRover/build
 
 # Utility rule file for run_tests.
 
@@ -67,6 +67,6 @@ CMakeFiles/run_tests.dir/clean:
 .PHONY : CMakeFiles/run_tests.dir/clean
 
 CMakeFiles/run_tests.dir/depend:
-	cd /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/src /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/src /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build/CMakeFiles/run_tests.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jackson/gazeboAutonomousRover/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jackson/gazeboAutonomousRover/src /home/jackson/gazeboAutonomousRover/src /home/jackson/gazeboAutonomousRover/build /home/jackson/gazeboAutonomousRover/build /home/jackson/gazeboAutonomousRover/build/CMakeFiles/run_tests.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/run_tests.dir/depend
 

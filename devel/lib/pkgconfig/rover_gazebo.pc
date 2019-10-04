@@ -1,0 +1,8 @@
+prefix=/home/jackson/gazeboAutonomousRover/devel
+
+Name: rover_gazebo
+Description: Description of rover_gazebo
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/jackson/gazeboAutonomousRover/devel/lib 
+Requires: 

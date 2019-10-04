@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jackson/gazeboAutonomousRover/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build/gtest/googlemock/gtest/cmake_install.cmake")
+  include("/home/jackson/gazeboAutonomousRover/build/gtest/googlemock/gtest/cmake_install.cmake")
 
 endif()
 

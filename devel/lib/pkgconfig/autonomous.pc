@@ -1,8 +1,8 @@
-prefix=/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/devel
+prefix=/home/jackson/gazeboAutonomousRover/devel
 
 Name: autonomous
 Description: Description of autonomous
 Version: 0.0.0
 Cflags: 
-Libs: -L/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/devel/lib 
+Libs: -L/home/jackson/gazeboAutonomousRover/devel/lib 
 Requires: 

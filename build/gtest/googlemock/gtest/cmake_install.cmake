@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/install")
+  set(CMAKE_INSTALL_PREFIX "/home/jackson/gazeboAutonomousRover/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

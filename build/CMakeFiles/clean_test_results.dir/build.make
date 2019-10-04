@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/src
+CMAKE_SOURCE_DIR = /home/jackson/gazeboAutonomousRover/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build
+CMAKE_BINARY_DIR = /home/jackson/gazeboAutonomousRover/build
 
 # Utility rule file for clean_test_results.
 
@@ -54,7 +54,7 @@ CMAKE_BINARY_DIR = /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/b
 include CMakeFiles/clean_test_results.dir/progress.make
 
 CMakeFiles/clean_test_results:
-	/usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build/test_results
+	/usr/bin/python2 /opt/ros/melodic/share/catkin/cmake/test/remove_test_results.py /home/jackson/gazeboAutonomousRover/build/test_results
 
 clean_test_results: CMakeFiles/clean_test_results
 clean_test_results: CMakeFiles/clean_test_results.dir/build.make
@@ -71,6 +71,6 @@ CMakeFiles/clean_test_results.dir/clean:
 .PHONY : CMakeFiles/clean_test_results.dir/clean
 
 CMakeFiles/clean_test_results.dir/depend:
-	cd /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/src /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/src /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build /home/odyssey/Documents/novaRover/git/gazeboAutonomousRover/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/jackson/gazeboAutonomousRover/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/jackson/gazeboAutonomousRover/src /home/jackson/gazeboAutonomousRover/src /home/jackson/gazeboAutonomousRover/build /home/jackson/gazeboAutonomousRover/build /home/jackson/gazeboAutonomousRover/build/CMakeFiles/clean_test_results.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/clean_test_results.dir/depend
 
