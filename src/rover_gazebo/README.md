@@ -1,5 +1,5 @@
 # gazeboAutonomousRover
-A repo to manage the codebase for the testing of a rover in a simulated space. Same thing as workspace, but more customizable as different models can be loaded for different worlds.
+A repo to manage the codebase for the testing of a rover in a simulated space. Same thing as workspace, but as a package
 ## Dependencies: 
 
 ### Use:
