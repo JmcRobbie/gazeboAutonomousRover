@@ -49,6 +49,7 @@
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
 #include <geometry_msgs/Twist.h>
+#include <autonomous/DriveCmd.h>
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/OccupancyGrid.h>
 
@@ -100,6 +101,7 @@ namespace gazebo {
       ros::NodeHandle* rosnode_;
       ros::Publisher odometry_publisher_;
       ros::Subscriber cmd_vel_subscriber_;
+      ros::Subscriber drive_cmd_subscriber;
       tf::TransformBroadcaster *transform_broadcaster_;
       nav_msgs::Odometry odom_;
       std::string tf_prefix_;
@@ -109,6 +111,7 @@ namespace gazebo {
 
       std::string robot_namespace_;
       std::string command_topic_;
+      std::string drive_cmd_topic_;
       std::string odometry_topic_;
       std::string odometry_frame_;
       std::string robot_base_frame_;
@@ -120,7 +123,7 @@ namespace gazebo {
 
       // DiffDrive stuff
       void cmdVelCallback(const geometry_msgs::Twist::ConstPtr& cmd_msg);
-
+      void driveCmdCallback(const autonomous::DriveCmd::ConstPtr& msg);
       double x_;
       double rot_;
       bool alive_;

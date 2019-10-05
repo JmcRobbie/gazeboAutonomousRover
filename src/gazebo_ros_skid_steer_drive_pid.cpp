@@ -162,6 +162,14 @@ namespace gazebo {
       this->torque = _sdf->GetElement("torque")->Get<double>();
     }
 
+    this->drive_cmd_topic_ = "gazebo/driver/drive_cmd";
+    if (!_sdf->HasElement("driveCommandTopic")) {
+      ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDrivePid Plugin (ns = %s) missing <commandTopic>, defaults to \"%s\"",
+          this->robot_namespace_.c_str(), this->drive_cmd_topic_.c_str());
+    } else {
+      this->drive_cmd_topic_ = _sdf->GetElement("driveCommandTopic")->Get<std::string>();
+    }
+
     this->command_topic_ = "cmd_vel";
     if (!_sdf->HasElement("commandTopic")) {
       ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDrivePid Plugin (ns = %s) missing <commandTopic>, defaults to \"%s\"",
@@ -319,6 +327,14 @@ namespace gazebo {
           ros::VoidPtr(), &queue_);
 
     cmd_vel_subscriber_ = rosnode_->subscribe(so);
+    
+    // ROS: Subscribe to the custom DriveCmd.msg drive topic (usuall "gazebo/driver/drive_cmd")
+    ros::SubscribeOptions so_drive_cmd =
+      ros::SubscribeOptions::create<autonomous::DriveCmd>(drive_cmd_topic_, 1,
+          boost::bind(&GazeboRosSkidSteerDrivePid::driveCmdCallback, this, _1),
+          ros::VoidPtr(), &queue_);
+
+    drive_cmd_subscriber = rosnode_->subscribe(so_drive_cmd);
 
     odometry_publisher_ = rosnode_->advertise<nav_msgs::Odometry>(odometry_topic_, 1);
 
@@ -386,6 +402,17 @@ namespace gazebo {
     wheel_speed_[LEFT_FRONT] = vr - va * wheel_separation_ / 2.0;
     wheel_speed_[LEFT_REAR] = vr - va * wheel_separation_ / 2.0;
 
+  }
+
+  void GazeboRosSkidSteerDrivePid::driveCmdCallback(
+      const autonomous::DriveCmd::ConstPtr& msg) {
+        
+    // convert DriveCmd to Twist
+    geometry_msgs::Twist* twist = new geometry_msgs::Twist();
+    twist->linear.x = static_cast<double>(msg->rpm)/60.0*wheel_diameter_*M_PI;
+    twist->angular.z = static_cast<double>(msg->steer_pct)/100.0/wheel_separation_*2.0;
+    geometry_msgs::Twist::ConstPtr twist_ptr(twist);
+    cmdVelCallback(twist_ptr);
   }
 
   void GazeboRosSkidSteerDrivePid::cmdVelCallback(
