@@ -127,7 +127,7 @@ include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE
 
 
 ## Declare a C++ library
-add_library(gazebo_ros_skid_steer_drive_pid src/gazebo_ros_skid_steer_drive_pid.cpp)
+add_library(gazebo_ros_skid_steer_drive_custom src/gazebo_ros_skid_steer_drive_custom.cpp)
 
 ## Add cmake target dependencies of the library
 ## as an example, code may need to be generated before libraries
@@ -150,7 +150,7 @@ add_library(gazebo_ros_skid_steer_drive_pid src/gazebo_ros_skid_steer_drive_pid.
 # add_dependencies(${PROJECT_NAME}_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 
 ## Specify libraries to link a library or executable target against
-target_link_libraries(gazebo_ros_skid_steer_drive_pid ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+target_link_libraries(gazebo_ros_skid_steer_drive_custom ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
 #############
 ## Install ##

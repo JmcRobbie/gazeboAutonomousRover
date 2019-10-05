@@ -66,11 +66,11 @@ namespace gazebo {
   class Joint;
   class Entity;
 
-  class GazeboRosSkidSteerDrivePid : public ModelPlugin {
+  class GazeboRosSkidSteerDriveCustom : public ModelPlugin {
 
     public:
-	  GazeboRosSkidSteerDrivePid();
-      ~GazeboRosSkidSteerDrivePid();
+	  GazeboRosSkidSteerDriveCustom();
+      ~GazeboRosSkidSteerDriveCustom();
       void Load(physics::ModelPtr _parent, sdf::ElementPtr _sdf);
 
     protected:
