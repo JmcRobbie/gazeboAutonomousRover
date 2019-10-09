@@ -7,20 +7,22 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="model" default="basic_rover"/>
+  <arg name="verbose" default="true" />
 
   <!-- Launch world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find rover_gazebo)/worlds/small_world.world"/>
+    <arg name="world_name" value="$(find autonomous)/worlds/small_world.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
     <arg name="use_sim_time" value="$(arg use_sim_time)"/>
     <arg name="headless" value="$(arg headless)"/>
+    <arg name="verbose" value="$(arg verbose)" />
   </include>
 
 <!-- Load the SDF into the ROS Parameter Server -->
-  <param name="robot_model" textfile="$(find gazeboAutonomousRover)/models/$(arg model)/model.sdf"/>
-    
+  <param name="robot_model" textfile="$(find autonomous)/models/$(arg model)/model.sdf"/>
+
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a SDF robot -->
   <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 	args="-x 0 -y 0 -z 0 -Y 0 -sdf -model model -param robot_model"/>
