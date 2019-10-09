@@ -4,8 +4,9 @@ A repo to manage the codebase for the testing of a rover in a simulated space.
 
 Everything runs on Ubuntu 18.04 LTS
 
-* Ros melodic 
-* Gazebo http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
+* ROS Melodic 
+* If you installed the full desktop version of ROS, Gazebo will alerady be installed. Else:
+  * Gazebo http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
 * Gazebo_ros_pkgs - install by command:
   * `sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control`
 * `ros-melodic-hector-gazebo-plugins`
