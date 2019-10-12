@@ -6,7 +6,8 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="model" default="basic_rover"/>
+
+  
   <arg name="verbose" default="true" />
 
   <!-- Launch world -->
@@ -20,9 +21,13 @@
     <arg name="verbose" value="$(arg verbose)" />
   </include>
 
+  <include file="$(find autonomous)/launch/static_tf_publishers.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
   <!-- Load the SDF into the ROS Parameter Server -->
   <param name="robot_model" textfile="$(find autonomous)/models/$(arg model)/model.sdf"/>
-    
+
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a SDF robot -->
   <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
 	args="-x 0 -y 0 -z 0 -Y 0 -sdf -model model -param robot_model"/>

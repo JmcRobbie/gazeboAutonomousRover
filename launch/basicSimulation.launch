@@ -5,4 +5,8 @@
     <arg name="world_name" value="$(find autonomous)/worlds/basicSimulation.world"/>
     <!-- more default parameters can be changed here -->
   </include>
+
+  <include file="$(find autonomous)/launch/static_tf_publishers.launch">
+    <arg name="model" value="basic_rover" />
+  </include>
 </launch>
