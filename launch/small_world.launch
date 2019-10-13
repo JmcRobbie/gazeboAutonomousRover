@@ -20,6 +20,10 @@
     <arg name="verbose" value="$(arg verbose)" />
   </include>
 
+  <include file="$(find autonomous)/launch/static_tf_publishers.launch">
+    <arg name="model" value="$(arg model)" />
+  </include>
+
 <!-- Load the SDF into the ROS Parameter Server -->
   <param name="robot_model" textfile="$(find autonomous)/models/$(arg model)/model.sdf"/>
 
