@@ -50,6 +50,7 @@
 #include <tf/transform_listener.h>
 #include <geometry_msgs/Twist.h>
 #include <autonomous/DriveCmd.h>
+#include <autonomous/EncoderData.h>
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/OccupancyGrid.h>
 
@@ -79,6 +80,7 @@ namespace gazebo {
 
     private:
       void publishOdometry(double step_time);
+      void publishEncoderData();
       void getWheelVelocities();
 
       physics::WorldPtr world;
@@ -100,6 +102,7 @@ namespace gazebo {
       // ROS STUFF
       ros::NodeHandle* rosnode_;
       ros::Publisher odometry_publisher_;
+      ros::Publisher encoder_data_publisher;
       ros::Subscriber cmd_vel_subscriber_;
       ros::Subscriber drive_cmd_subscriber;
       tf::TransformBroadcaster *transform_broadcaster_;
@@ -113,6 +116,7 @@ namespace gazebo {
       std::string command_topic_;
       std::string drive_cmd_topic_;
       std::string odometry_topic_;
+      std::string encoder_data_topic;
       std::string odometry_frame_;
       std::string robot_base_frame_;
 

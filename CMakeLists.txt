@@ -53,6 +53,7 @@ find_package(gazebo REQUIRED)
 add_message_files(
   FILES
   DriveCmd.msg
+  EncoderData.msg
 )
 
 ## Generate services in the 'srv' folder
