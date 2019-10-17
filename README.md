@@ -32,7 +32,8 @@ Everything runs on Ubuntu 18.04 LTS
   * Can be driven graphically from launch file or using `$ rosrun rqt_robot_steering rqt_robot_steering`. 
   * Can drive by publishing to `/cmd_vel` topic: `$ rostopic pub  /cmd_vel geometry_msgs/Twist '[<LINEAR_SPEED>, 0, 0]' '[0, 0, <ANGULAR_SPEED>]'`
   * Can drive by publishing to `/gazebo/driver/drive_cmd` topic: `$ rostopic pub /gazebo/driver/drive_cmd /gazebo/driver/drive_cmd autonomous/DriveCmd '{rpm: <RPM>, steer_pct: <STEER_PCT>}`
-  * Also provides odometry data on topic `\odom`
+  * Also provides odometry data on topic `/odom`
+  * Encoder data of wheels is published to `/gazebo/encoder_data`
 
 * Robot models provided are basic_rover and laser_rover. To launch the basic model in the closed_maze.world provided, use command:
   * `roslaunch autonomous closed_maze.launch`

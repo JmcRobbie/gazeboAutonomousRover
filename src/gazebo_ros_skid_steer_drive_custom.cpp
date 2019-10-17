@@ -194,6 +194,14 @@ namespace gazebo {
       this->odometry_frame_ = _sdf->GetElement("odometryFrame")->Get<std::string>();
     }
 
+    this->encoder_data_topic = "gazebo/encoder_data";
+    if (!_sdf->HasElement("encoderDataTopic")) {
+      ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) missing <encoderDataTopic>, defaults to \"%s\"",
+          this->robot_namespace_.c_str(), this->encoder_data_topic.c_str());
+    } else {
+      this->encoder_data_topic = _sdf->GetElement("encoderDataTopic")->Get<std::string>();
+    }
+
     this->robot_base_frame_ = "base_footprint";
     if (!_sdf->HasElement("robotBaseFrame")) {
       ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) missing <robotBaseFrame>, defaults to \"%s\"",
@@ -338,6 +346,8 @@ namespace gazebo {
 
     odometry_publisher_ = rosnode_->advertise<nav_msgs::Odometry>(odometry_topic_, 1);
 
+    encoder_data_publisher = rosnode_->advertise<autonomous::EncoderData>(encoder_data_topic, 1);
+
     // start custom queue for diff drive
     this->callback_queue_thread_ =
       boost::thread(boost::bind(&GazeboRosSkidSteerDriveCustom::QueueThread, this));
@@ -361,6 +371,8 @@ namespace gazebo {
     if (seconds_since_last_update > update_period_) {
 
       publishOdometry(seconds_since_last_update);
+
+      publishEncoderData();
 
       // Update robot in case new velocities have been requested
       getWheelVelocities();
@@ -499,6 +511,25 @@ namespace gazebo {
     odom_.child_frame_id = base_footprint_frame;
 
     odometry_publisher_.publish(odom_);
+  }
+
+  void GazeboRosSkidSteerDriveCustom::publishEncoderData() {
+    autonomous::EncoderData msg;
+    // msg.talon0Position = joints[LEFT_FRONT].Position();
+    msg.talon1Position = joints[LEFT_FRONT]->Position(1);
+    msg.talon2Position = joints[LEFT_REAR]->Position();
+    // msg.talon3Position = joints[LEFT_FRONT]->Position();
+    msg.talon4Position = joints[RIGHT_FRONT]->Position(1);
+    msg.talon5Position = joints[RIGHT_REAR]->Position();
+
+    // msg.talon0Velocity = joints[LEFT_FRONT]->GetVelocity();
+    msg.talon1Velocity = joints[LEFT_FRONT]->GetVelocity(1);
+    msg.talon2Velocity = joints[LEFT_REAR]->GetVelocity(0);
+    // msg.talon3Velocity = joints[LEFT_FRONT]->GetVelocity(0);
+    msg.talon4Velocity = joints[RIGHT_FRONT]->GetVelocity(1);
+    msg.talon5Velocity = joints[RIGHT_REAR]->GetVelocity(0);
+
+    encoder_data_publisher.publish(msg);
   }
 
   GZ_REGISTER_MODEL_PLUGIN(GazeboRosSkidSteerDriveCustom)
