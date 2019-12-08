@@ -1,0 +1,14 @@
+<launch>
+<!-- Publish static tf frames for sensors -->
+  <arg name="model" default="basic_rover"/>
+
+  <node name="base_link_publsher" pkg="tf" type="static_transform_publisher" args="0 0 0.15 0 0 0 base_footprint base_link 10"/>
+  <node name="camera_frame_publsher" pkg="tf" type="static_transform_publisher" args="0.2 0 0.2 -1.58 0 -1.58 base_link camera_link 10"/>
+  <node name="imu_frame_publsher" pkg="tf" type="static_transform_publisher" args="0.2 0 0.2 0 0 0 base_link imu_link 10"/>
+  <node name="gps_frame_publsher" pkg="tf" type="static_transform_publisher" args="0.2 0 0.2 0 0 0 base_link gps_link 10"/>
+
+  <group if="$(eval arg('model') == 'laser_rover')">
+    <node name="laser_frame_publsher" pkg="tf" type="static_transform_publisher" args="0.53 0 -0.07 0 0 0 base_link laser_link 10"/>
+  </group>
+
+</launch>

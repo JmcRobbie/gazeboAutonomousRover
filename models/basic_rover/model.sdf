@@ -338,7 +338,7 @@
         </axis>
       </joint>
       <pose frame=''>-0.2 0 -0.2 -0 -0 -0</pose>
-      <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+      <plugin name="skid_steer_drive_controller_custom" filename="libgazebo_ros_skid_steer_drive_custom.so">
         <updateRate>0.0</updateRate>
         <robotNamespace>/</robotNamespace>
         <leftFrontJoint>wheel_front_left_steer_spin</leftFrontJoint>
@@ -347,34 +347,34 @@
         <rightRearJoint>wheel_rear_right_spin</rightRearJoint>
         <wheelSeparation>0.596</wheelSeparation>
         <wheelDiameter>0.3</wheelDiameter>
-        <robotBaseFrame>''</robotBaseFrame>
+        <robotBaseFrame>base_footprint</robotBaseFrame>
         <torque>1</torque>
         <commandTopic>cmd_vel</commandTopic>
         <odometryTopic>odom</odometryTopic>
-        <odometryFrame>map</odometryFrame>
+        <odometryFrame>odom</odometryFrame>
         <covariance_x>0.000100</covariance_x>
         <covariance_y>0.000100</covariance_y>
         <covariance_yaw>0.000100</covariance_yaw>
-        <broadcastTF>0</broadcastTF>
+        <broadcastTF>1</broadcastTF>
       </plugin>
     </model>
     <model name='kinect'>
     <plugin name="name_gps" filename="libhector_gazebo_ros_gps.so">
       <alwayson>1</alwayson>
       <updaterate>10.0</updaterate>
-      <bodyname>basefootprint</bodyname>
+      <bodyname>gps_link</bodyname>
       <topicname>fix</topicname>
       <velocitytopicname>fixvelocity</velocitytopicname>
       <drift>5.0 5.0 5.0</drift>
       <gaussiannoise>0.1 0.1 0.1</gaussiannoise>
       <velocitydrift>0 0 0</velocitydrift>
       <velocitygaussiannoise>0.1 0.1 0.1</velocitygaussiannoise>
-    </plugin> 
-      <pose frame=''>0.2 -0 0.2 -0 -0 -0</pose>
-      <link name='link'>
+    </plugin>
+      <pose frame=''>0.2 0 0.2 0 0 0</pose>
+      <link name='camera_link'>
         <inertial>
           <mass>0.1</mass>
-          <pose frame=''>0 0 0 0 -0 0</pose>
+          <pose frame=''>0 0 0 0 0 0</pose>
           <inertia>
             <ixx>1</ixx>
             <ixy>0</ixy>
@@ -476,8 +476,8 @@
     </model>
     <joint name='chassis_JOINT_1' type='fixed'>
       <parent>cart_front_steer::chassis</parent>
-      <child>kinect::link</child>
-      <pose frame=''>-0.38 0 0.2 0 -0 0</pose>
+      <child>kinect::camera_link</child>
+      <pose frame=''>-0.38 0 0.2 0 0 0</pose>
       <physics>
         <ode>
           <limit>
