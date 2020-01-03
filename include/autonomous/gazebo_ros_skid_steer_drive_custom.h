@@ -49,8 +49,8 @@
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
 #include <geometry_msgs/Twist.h>
-#include <autonomous/DriveCmd.h>
-#include <autonomous/EncoderData.h>
+#include <autonomous_sim/DriveCmd.h>
+#include <autonomous_sim/EncoderData.h>
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/OccupancyGrid.h>
 
@@ -127,7 +127,7 @@ namespace gazebo {
 
       // DiffDrive stuff
       void cmdVelCallback(const geometry_msgs::Twist::ConstPtr& cmd_msg);
-      void driveCmdCallback(const autonomous::DriveCmd::ConstPtr& msg);
+      void driveCmdCallback(const autonomous_sim::DriveCmd::ConstPtr& msg);
       double x_;
       double rot_;
       bool alive_;

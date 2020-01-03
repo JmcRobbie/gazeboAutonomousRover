@@ -2,11 +2,11 @@
   <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
   <node pkg="rqt_robot_steering" type="rqt_robot_steering" name="rqt_robot_steering"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find autonomous)/worlds/basicSimulation.world"/>
+    <arg name="world_name" value="$(find autonomous_sim)/worlds/basicSimulation.world"/>
     <!-- more default parameters can be changed here -->
   </include>
 
-  <include file="$(find autonomous)/launch/static_tf_publishers.launch">
+  <include file="$(find autonomous_sim)/launch/static_tf_publishers.launch">
     <arg name="model" value="basic_rover" />
   </include>
 </launch>

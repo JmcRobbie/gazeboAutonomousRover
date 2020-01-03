@@ -1,4 +1,4 @@
-# gazeboAutonomousRover
+# gazeboautonomous_simRover
 A repo to manage the codebase for the testing of a rover in a simulated space. 
 Clone this repo to src folder of your catkin workspace. 
 ## Environment and Dependencies: 
@@ -25,17 +25,17 @@ Everything runs on Ubuntu 18.04 LTS
 `$ echo "export GAZEBO_MODEL_PATH=/path/to/models/:$GAZEBO_MODEL_PATH" >> ~/.bashrc`
 
 ## Use:
-* Run launch file `$ roslaunch autonomous basiSimulation.launch` 
+* Run launch file `$ roslaunch autonomous_sim basiSimulation.launch` 
 * Can also run .world file directly after running `$ roscore`: `$ rosrun gazebo_ros gazebo path/to/basicSimulation.world --verbose`.
 * Use rviz and rostopic to see the sensor data stream out.
 * Skid Steer Drive Controller plugin is used for primitive driving of rover. 
   * Can be driven graphically from launch file or using `$ rosrun rqt_robot_steering rqt_robot_steering`. 
   * Can drive by publishing to `/cmd_vel` topic: `$ rostopic pub  /cmd_vel geometry_msgs/Twist '[<LINEAR_SPEED>, 0, 0]' '[0, 0, <ANGULAR_SPEED>]'`
-  * Can drive by publishing to `/gazebo/driver/drive_cmd` topic: `$ rostopic pub /gazebo/driver/drive_cmd /gazebo/driver/drive_cmd autonomous/DriveCmd '{rpm: <RPM>, steer_pct: <STEER_PCT>}`
+  * Can drive by publishing to `/gazebo/driver/drive_cmd` topic: `$ rostopic pub /gazebo/driver/drive_cmd /gazebo/driver/drive_cmd autonomous_sim/DriveCmd '{rpm: <RPM>, steer_pct: <STEER_PCT>}`
   * Also provides odometry data on topic `/odom`
   * Encoder data of wheels is published to `/gazebo/encoder_data`
 
 * Robot models provided are basic_rover and laser_rover. To launch the basic model in the closed_maze.world provided, use command:
-  * `roslaunch autonomous closed_maze.launch`
+  * `roslaunch autonomous_sim closed_maze.launch`
 * The choice of robot model may be passed into the launch file as an argument of model, like so:
-  * `roslaunch autonomous closed_maze.launch model:=laser_rover`
+  * `roslaunch autonomous_sim closed_maze.launch model:=laser_rover`
