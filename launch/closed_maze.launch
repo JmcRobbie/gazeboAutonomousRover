@@ -12,7 +12,7 @@
 
   <!-- Launch world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
-    <arg name="world_name" value="$(find autonomous)/worlds/closed_maze.world"/>
+    <arg name="world_name" value="$(find autonomous_sim)/worlds/closed_maze.world"/>
     <arg name="debug" value="$(arg debug)" />
     <arg name="gui" value="$(arg gui)" />
     <arg name="paused" value="$(arg paused)"/>
@@ -21,12 +21,12 @@
     <arg name="verbose" value="$(arg verbose)" />
   </include>
 
-  <include file="$(find autonomous)/launch/static_tf_publishers.launch">
+  <include file="$(find autonomous_sim)/launch/static_tf_publishers.launch">
     <arg name="model" value="$(arg model)" />
   </include>
 
   <!-- Load the SDF into the ROS Parameter Server -->
-  <param name="robot_model" textfile="$(find autonomous)/models/$(arg model)/model.sdf"/>
+  <param name="robot_model" textfile="$(find autonomous_sim)/models/$(arg model)/model.sdf"/>
 
   <!-- Run a python script to the send a service call to gazebo_ros to spawn a SDF robot -->
   <node name="sdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"

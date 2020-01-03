@@ -338,7 +338,7 @@ namespace gazebo {
     
     // ROS: Subscribe to the custom DriveCmd.msg drive topic (usuall "gazebo/driver/drive_cmd")
     ros::SubscribeOptions so_drive_cmd =
-      ros::SubscribeOptions::create<autonomous::DriveCmd>(drive_cmd_topic_, 1,
+      ros::SubscribeOptions::create<autonomous_sim::DriveCmd>(drive_cmd_topic_, 1,
           boost::bind(&GazeboRosSkidSteerDriveCustom::driveCmdCallback, this, _1),
           ros::VoidPtr(), &queue_);
 
@@ -346,7 +346,7 @@ namespace gazebo {
 
     odometry_publisher_ = rosnode_->advertise<nav_msgs::Odometry>(odometry_topic_, 1);
 
-    encoder_data_publisher = rosnode_->advertise<autonomous::EncoderData>(encoder_data_topic, 1);
+    encoder_data_publisher = rosnode_->advertise<autonomous_sim::EncoderData>(encoder_data_topic, 1);
 
     // start custom queue for diff drive
     this->callback_queue_thread_ =
@@ -417,7 +417,7 @@ namespace gazebo {
   }
 
   void GazeboRosSkidSteerDriveCustom::driveCmdCallback(
-      const autonomous::DriveCmd::ConstPtr& msg) {
+      const autonomous_sim::DriveCmd::ConstPtr& msg) {
         
     // convert DriveCmd to Twist
     geometry_msgs::Twist* twist = new geometry_msgs::Twist();
@@ -514,7 +514,7 @@ namespace gazebo {
   }
 
   void GazeboRosSkidSteerDriveCustom::publishEncoderData() {
-    autonomous::EncoderData msg;
+    autonomous_sim::EncoderData msg;
     // msg.talon0Position = joints[LEFT_FRONT].Position();
     msg.talon1Position = joints[LEFT_FRONT]->Position(1);
     msg.talon2Position = joints[LEFT_REAR]->Position();

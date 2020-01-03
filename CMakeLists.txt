@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(autonomous)
+project(autonomous_sim)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 # add_compile_options(-std=c++11)
@@ -111,7 +111,7 @@ catkin_package(
     gazebo_ros
   INCLUDE_DIRS 
     include
-#  LIBRARIES autonomous
+#  LIBRARIES autonomous_sim
   CATKIN_DEPENDS roscpp rospy std_msgs message_runtime
 #  DEPENDS system_lib
 )
@@ -124,7 +124,7 @@ link_directories(${GAZEBO_LIBRARY_DIRS})
 
 ## Specify additional locations of header files
 ## Your package locations should be listed before other locations
-include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS} include/autonomous)
+include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${GAZEBO_INCLUDE_DIRS} include/autonomous_sim)
 
 
 ## Declare a C++ library
@@ -138,7 +138,7 @@ add_library(gazebo_ros_skid_steer_drive_custom src/gazebo_ros_skid_steer_drive_c
 ## Declare a C++ executable
 ## With catkin_make all packages are built within a single CMake context
 ## The recommended prefix ensures that target names across packages don't collide
-# add_executable(${PROJECT_NAME}_node src/autonomous_node.cpp)
+# add_executable(${PROJECT_NAME}_node src/autonomous_sim_node.cpp)
 
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
@@ -200,7 +200,7 @@ target_link_libraries(gazebo_ros_skid_steer_drive_custom ${catkin_LIBRARIES} ${G
 #############
 
 ## Add gtest based cpp test target and link libraries
-# catkin_add_gtest(${PROJECT_NAME}-test test/test_autonomous.cpp)
+# catkin_add_gtest(${PROJECT_NAME}-test test/test_autonomous_sim.cpp)
 # if(TARGET ${PROJECT_NAME}-test)
 #   target_link_libraries(${PROJECT_NAME}-test ${PROJECT_NAME})
 # endif()
