@@ -1,4 +1,4 @@
-# gazeboautonomous_simRover
+# gazebo autonomous simumaltion for Rover
 A repo to manage the codebase for the testing of a rover in a simulated space. 
 Clone this repo to src folder of your catkin workspace. 
 ## Environment and Dependencies: 
@@ -25,7 +25,7 @@ Everything runs on Ubuntu 18.04 LTS
 `$ echo "export GAZEBO_MODEL_PATH=/path/to/models/:$GAZEBO_MODEL_PATH" >> ~/.bashrc`
 
 ## Use:
-* Run launch file `$ roslaunch autonomous_sim basiSimulation.launch` 
+* Run launch file `$ roslaunch autonomous_sim basicSimulation.launch` 
 * Can also run .world file directly after running `$ roscore`: `$ rosrun gazebo_ros gazebo path/to/basicSimulation.world --verbose`.
 * Use rviz and rostopic to see the sensor data stream out.
 * Skid Steer Drive Controller plugin is used for primitive driving of rover. 
