@@ -1,4 +1,4 @@
-# gazebo autonomous simumaltion for Rover
+# gazebo autonomous simulation for Rover
 A repo to manage the codebase for the testing of a rover in a simulated space. 
 Clone this repo to src folder of your catkin workspace. 
 ## Environment and Dependencies: 
