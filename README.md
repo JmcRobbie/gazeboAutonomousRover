@@ -31,7 +31,7 @@ Everything runs on Ubuntu 18.04 LTS
 * Skid Steer Drive Controller plugin is used for primitive driving of rover. 
   * Can be driven graphically from launch file or using `$ rosrun rqt_robot_steering rqt_robot_steering`. 
   * Can drive by publishing to `/cmd_vel` topic: `$ rostopic pub  /cmd_vel geometry_msgs/Twist '[<LINEAR_SPEED>, 0, 0]' '[0, 0, <ANGULAR_SPEED>]'`
-  * Can drive by publishing to `/gazebo/driver/drive_cmd` topic: `$ rostopic pub /gazebo/driver/drive_cmd /gazebo/driver/drive_cmd autonomous_sim/DriveCmd '{rpm: <RPM>, steer_pct: <STEER_PCT>}`
+  * Can drive by publishing to `/gazebo/driver/drive_cmd` topic: `$ rostopic pub /gazebo/driver/drive_cmd autonomous_sim/DriveCmd '{rpm: <RPM>, steer_pct: <STEER_PCT>}'`
   * Also provides odometry data on topic `/odom`
   * Encoder data of wheels is published to `/gazebo/encoder_data`
 

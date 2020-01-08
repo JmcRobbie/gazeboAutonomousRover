@@ -3,6 +3,7 @@
   <node pkg="rqt_robot_steering" type="rqt_robot_steering" name="rqt_robot_steering"/>
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
     <arg name="world_name" value="$(find autonomous_sim)/worlds/basicSimulation.world"/>
+    <arg name="gui" value="true"/>
     <!-- more default parameters can be changed here -->
   </include>
 
