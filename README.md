@@ -34,8 +34,13 @@ Everything runs on Ubuntu 18.04 LTS
   * Can drive by publishing to `/gazebo/driver/drive_cmd` topic: `$ rostopic pub /gazebo/driver/drive_cmd /gazebo/driver/drive_cmd autonomous_sim/DriveCmd '{rpm: <RPM>, steer_pct: <STEER_PCT>}`
   * Also provides odometry data on topic `/odom`
   * Encoder data of wheels is published to `/gazebo/encoder_data`
+  * Laser scan data is published to `/scan`
 
 * Robot models provided are basic_rover and laser_rover. To launch the basic model in the closed_maze.world provided, use command:
   * `roslaunch autonomous_sim closed_maze.launch`
 * The choice of robot model may be passed into the launch file as an argument of model, like so:
-  * `roslaunch autonomous_sim closed_maze.launch model:=laser_rover`
+  * Launch 3D LIDAR rover in maze world: `roslaunch autonomous_sim closed_maze.launch model:=laser_rover`
+  * Launch 2D LIDAR rover in empty world:`roslaunch autonomous_sim empty_world.launch model:=2d_lidar_rover`
+
+* With the autonomous package from the https://github.com/novarover/autonomous repo (checkout to the correct branch), `roslaunch autonomous simulation_bug2.launch` to run simulation of bug 2 motion planning algorithm. 
+
