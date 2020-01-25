@@ -7,7 +7,6 @@
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
   <arg name="model" default="2d_lidar_rover"/>
-  
   <arg name="verbose" default="true" />
 
   <!-- Launch world -->
