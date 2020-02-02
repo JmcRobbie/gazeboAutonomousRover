@@ -13,6 +13,7 @@ Everything runs on Ubuntu 18.04 LTS
   * `$ sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control`
   * `$ sudo apt-get install ros-melodic-hector-gazebo-plugins`
   * `$ sudo apt-get install ros-melodic-rqt-robot-steering` - pkg for steering rover via a gui
+* Depends on messages defined in common repo https://github.com/novarover/common, please clone into same workspace.
   
  ## Git Usage:
  * Clone this repository into a subdirectory of the catkin workspace src folder.

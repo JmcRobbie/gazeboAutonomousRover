@@ -36,6 +36,7 @@
     <depend>rospy</depend>
     <depend>std_msgs</depend>
     <depend>gazebo_ros</depend>
+    <depend>common</depend>
     
   <!--   Note that this is equivalent to the following: -->
   <!--   <build_depend>roscpp</build_depend> -->
