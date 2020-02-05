@@ -1,6 +1,6 @@
 <?xml version='1.0'?>
 <sdf version='1.6'>
-  <model name='test'>
+  <model name='basic_rover'>
     <model name='cart_front_steer'>
       <link name='chassis'>
         <pose frame=''>0 0 0.15 0 -0 0</pose>
@@ -19,7 +19,7 @@
         <collision name='collision'>
           <geometry>
             <box>
-              <size>1 0.5 0.1</size>
+              <size>1.5 0.5 0.1</size>
             </box>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -39,7 +39,7 @@
         <visual name='visual'>
           <geometry>
             <box>
-              <size>1 0.5 0.1</size>
+              <size>1.5 0.5 0.1</size>
             </box>
           </geometry>
           <material>
