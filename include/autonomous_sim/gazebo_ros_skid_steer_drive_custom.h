@@ -41,16 +41,14 @@
 
 #include <map>
 
-#include <gazebo/common/common.hh>
-#include <gazebo/physics/physics.hh>
-
 // ROS
 #include <ros/ros.h>
 #include <tf/transform_broadcaster.h>
 #include <tf/transform_listener.h>
 #include <geometry_msgs/Twist.h>
-#include <autonomous/DriveCmd.h>
-#include <autonomous/EncoderData.h>
+#include <common/DriveCmd.h>
+namespace common_rover = common;
+#include <autonomous_sim/EncoderData.h>
 #include <nav_msgs/Odometry.h>
 #include <nav_msgs/OccupancyGrid.h>
 
@@ -61,6 +59,11 @@
 // Boost
 #include <boost/thread.hpp>
 #include <boost/bind.hpp>
+
+
+#include <gazebo/common/common.hh>
+#include <gazebo/physics/physics.hh>
+
 
 namespace gazebo {
 
@@ -127,7 +130,7 @@ namespace gazebo {
 
       // DiffDrive stuff
       void cmdVelCallback(const geometry_msgs::Twist::ConstPtr& cmd_msg);
-      void driveCmdCallback(const autonomous::DriveCmd::ConstPtr& msg);
+      void driveCmdCallback(const common_rover::DriveCmd::ConstPtr& msg);
       double x_;
       double rot_;
       bool alive_;
