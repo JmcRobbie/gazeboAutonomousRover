@@ -338,7 +338,7 @@ namespace gazebo {
     
     // ROS: Subscribe to the custom DriveCmd.msg drive topic (usuall "gazebo/driver/drive_cmd")
     ros::SubscribeOptions so_drive_cmd =
-      ros::SubscribeOptions::create<autonomous_sim::DriveCmd>(drive_cmd_topic_, 1,
+      ros::SubscribeOptions::create<common_rover::DriveCmd>(drive_cmd_topic_, 1,
           boost::bind(&GazeboRosSkidSteerDriveCustom::driveCmdCallback, this, _1),
           ros::VoidPtr(), &queue_);
 
@@ -417,7 +417,7 @@ namespace gazebo {
   }
 
   void GazeboRosSkidSteerDriveCustom::driveCmdCallback(
-      const autonomous_sim::DriveCmd::ConstPtr& msg) {
+      const common_rover::DriveCmd::ConstPtr& msg) {
         
     // convert DriveCmd to Twist
     geometry_msgs::Twist* twist = new geometry_msgs::Twist();
