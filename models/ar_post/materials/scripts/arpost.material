@@ -148,7 +148,7 @@ material ARLeg7L
   }
 }
 
-material ARLeg6R
+material ARLeg7R
 {
   receive_shadows off
   technique
