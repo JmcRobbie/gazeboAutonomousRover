@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+  <model name="AR Post">
+    <static>true</static>
+    <link name="link">
+      <collision name="collision">
+        <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name="visual">
+        <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+        </geometry>
+        <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>arpost</name>
+          </script>
+        </material>
+      </visual>
+    </link>
+  </model>
+</sdf>

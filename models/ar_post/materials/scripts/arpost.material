@@ -1,0 +1,14 @@
+material arpost
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg1.png
+      }
+    }
+  }
+}
