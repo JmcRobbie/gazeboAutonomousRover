@@ -1,4 +1,4 @@
-material arpost
+material ARLeg1
 {
   receive_shadows off
   technique
@@ -8,6 +8,156 @@ material arpost
       texture_unit
       {
         texture ARLeg1.png
+      }
+    }
+  }
+}
+
+material ARLeg2
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg2.png
+      }
+    }
+  }
+}
+
+material ARLeg3
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg3.png
+      }
+    }
+  }
+}
+
+material ARLeg4L
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg4L.png
+      }
+    }
+  }
+}
+
+material ARLeg4R
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg4R.png
+      }
+    }
+  }
+}
+
+material ARLeg5L
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg5L.png
+      }
+    }
+  }
+}
+
+material ARLeg5R
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg5R.png
+      }
+    }
+  }
+}
+
+material ARLeg6L
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg6L.png
+      }
+    }
+  }
+}
+
+material ARLeg6R
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg6R.png
+      }
+    }
+  }
+}
+
+material ARLeg7L
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg7L.png
+      }
+    }
+  }
+}
+
+material ARLeg6R
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture ARLeg7R.png
       }
     }
   }

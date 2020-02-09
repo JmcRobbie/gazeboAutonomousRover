@@ -20,7 +20,7 @@
           <script>
             <uri>model://ar_post/materials/scripts</uri>
             <uri>model://ar_post/materials/textures</uri>
-            <name>arpost</name>
+            <name>ARLeg1</name>
           </script>
         </material>
       </visual>
