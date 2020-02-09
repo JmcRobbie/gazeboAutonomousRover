@@ -6,23 +6,18 @@
       <collision name="collision">
         <geometry>
           <mesh>
-            <uri>model://ar_post/meshes/ar_post.dae</uri>
+            <uri>model://ar_post/meshes/post2.obj</uri>
+            <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
       </collision>
       <visual name="visual">
         <geometry>
           <mesh>
-            <uri>model://ar_post/meshes/ar_post.dae</uri>
+            <uri>model://ar_post/meshes/post2.obj</uri>
+            <scale>0.001 0.001 0.001</scale>
           </mesh>
         </geometry>
-        <material>
-          <script>
-            <uri>model://ar_post/materials/scripts</uri>
-            <uri>model://ar_post/materials/textures</uri>
-            <name>arpost</name>
-          </script>
-        </material>
       </visual>
     </link>
   </model>
