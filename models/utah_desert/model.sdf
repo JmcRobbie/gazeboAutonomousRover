@@ -1,4 +1,5 @@
 <?xml version="1.0" ?>
+<!-- please delete ~/.gazebo/paging after changing this file -->
 <sdf version="1.6">
     <model name="utah_desert">
       <static>true</static>
@@ -17,27 +18,27 @@
             <heightmap>
               <use_terrain_paging>false</use_terrain_paging>
               <texture>
-                <diffuse>file://media/materials/textures/dirt_diffusespecular.png</diffuse>
-                <normal>file://media/materials/textures/flat_normal.png</normal>
-                <size>1</size>
-              </texture>
-              <texture>
-                <diffuse>file://media/materials/textures/grass_diffusespecular.png</diffuse>
-                <normal>file://media/materials/textures/flat_normal.png</normal>
-                <size>1</size>
-              </texture>
-              <texture>
                 <diffuse>file://media/materials/textures/fungus_diffusespecular.png</diffuse>
+                <normal>file://media/materials/textures/fungus_normal.png</normal>
+                <size>2</size>
+              </texture>
+              <texture>
+                <diffuse>file://media/materials/textures/dirt_diffusespecular.png</diffuse>
+                <normal>file://media/materials/textures/dirt_normal.png</normal>
+                <size>2</size>
+              </texture>
+              <texture>
+                <diffuse>file://media/materials/textures/granite.jpg</diffuse>
                 <normal>file://media/materials/textures/flat_normal.png</normal>
-                <size>1</size>
+                <size>2</size>
               </texture>
               <blend>
-                <min_height>2</min_height>
-                <fade_dist>5</fade_dist>
+                <min_height>1</min_height>
+                <fade_dist>3</fade_dist>
               </blend>
               <blend>
-                <min_height>4</min_height>
-                <fade_dist>5</fade_dist>
+                <min_height>8</min_height>
+                <fade_dist>10</fade_dist>
               </blend>
               <uri>model://utah_desert/materials/textures/utah_desert_resize.png</uri>
               <size>1025 1025 25</size>
