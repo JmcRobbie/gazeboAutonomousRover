@@ -3,7 +3,7 @@
   <model name='basic_rover'>
     <model name='cart_front_steer'>
       <link name='chassis'>
-        <pose frame=''>0 0 0.15 0 -0 0</pose>
+        <pose frame=''>0 0 0.3 0 -0 0</pose>
         <inertial>
           <pose frame=''>0.1 0 0 0 -0 0</pose>
           <mass>10</mass>
@@ -52,291 +52,403 @@
         <self_collide>0</self_collide>
         <enable_wind>0</enable_wind>
         <kinematic>0</kinematic>
-      </link>
-      <link name='wheel_front_left'>
-        <pose frame=''>0.5 0.298 0.15 -1.5708 -0.087266 0</pose>
-        <inertial>
-          <mass>0.5</mass>
-          <inertia>
-            <ixx>0.00307917</ixx>
-            <iyy>0.00307917</iyy>
-            <izz>0.005625</izz>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyz>0</iyz>
-          </inertia>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-        </inertial>
-        <collision name='collision'>
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>0.08</length>
-            </cylinder>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <slip1>0.2</slip1>
-                <slip2>0.2</slip2>
-              </ode>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>0.08</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Black</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='wheel_front_left_steer_spin' type='universal'>
-        <parent>chassis</parent>
-        <child>wheel_front_left</child>
-        <axis>
-          <xyz>0 -1 0</xyz>
-          <limit>
-            <lower>-0.610865</lower>
-            <upper>0.610865</upper>
-          </limit>
-          <use_parent_model_frame>0</use_parent_model_frame>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>100</spring_stiffness>
-          </dynamics>
-        </axis>
-        <axis2>
-          <xyz>0 0 1</xyz>
-          <use_parent_model_frame>0</use_parent_model_frame>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis2>
-      </joint>
-      <link name='wheel_front_right'>
-        <pose frame=''>0.5 -0.298 0.15 -1.5708 -0.087266 0</pose>
-        <inertial>
-          <mass>0.5</mass>
-          <inertia>
-            <ixx>0.00307917</ixx>
-            <iyy>0.00307917</iyy>
-            <izz>0.005625</izz>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyz>0</iyz>
-          </inertia>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-        </inertial>
-        <collision name='collision'>
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>0.08</length>
-            </cylinder>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <slip1>0.2</slip1>
-                <slip2>0.2</slip2>
-              </ode>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>0.08</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Black</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='wheel_front_right_steer_spin' type='universal'>
-        <parent>chassis</parent>
-        <child>wheel_front_right</child>
-        <axis>
-          <xyz>0 -1 0</xyz>
-          <limit>
-            <lower>-0.610865</lower>
-            <upper>0.610865</upper>
-          </limit>
-          <use_parent_model_frame>0</use_parent_model_frame>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>100</spring_stiffness>
-          </dynamics>
-        </axis>
-        <axis2>
-          <xyz>0 0 1</xyz>
-          <use_parent_model_frame>0</use_parent_model_frame>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis2>
-      </joint>
-      <link name='wheel_rear_left'>
-        <pose frame=''>-0.5 0.298 0.15 -1.5708 0 0</pose>
-        <inertial>
-          <mass>0.5</mass>
-          <inertia>
-            <ixx>0.00307917</ixx>
-            <iyy>0.00307917</iyy>
-            <izz>0.005625</izz>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyz>0</iyz>
-          </inertia>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-        </inertial>
-        <collision name='collision'>
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>0.08</length>
-            </cylinder>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <slip1>0.2</slip1>
-                <slip2>0.2</slip2>
-              </ode>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>0.08</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Black</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='wheel_rear_left_spin' type='revolute'>
-        <parent>chassis</parent>
-        <child>wheel_rear_left</child>
-        <axis>
-          <xyz>0 0 1</xyz>
-          <use_parent_model_frame>0</use_parent_model_frame>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
-      <link name='wheel_rear_right'>
-        <pose frame=''>-0.5 -0.298 0.15 -1.5708 0 0</pose>
-        <inertial>
-          <mass>0.5</mass>
-          <inertia>
-            <ixx>0.00307917</ixx>
-            <iyy>0.00307917</iyy>
-            <izz>0.005625</izz>
-            <ixy>0</ixy>
-            <ixz>0</ixz>
-            <iyz>0</iyz>
-          </inertia>
-          <pose frame=''>0 0 0 0 -0 0</pose>
-        </inertial>
-        <collision name='collision'>
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>0.08</length>
-            </cylinder>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <friction>
-              <ode>
-                <mu>1</mu>
-                <mu2>1</mu2>
-                <slip1>0.2</slip1>
-                <slip2>0.2</slip2>
-              </ode>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <cylinder>
-              <radius>0.15</radius>
-              <length>0.08</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Black</name>
-            </script>
-          </material>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-      <joint name='wheel_rear_right_spin' type='revolute'>
-        <parent>chassis</parent>
-        <child>wheel_rear_right</child>
-        <axis>
-          <xyz>0 0 1</xyz>
-          <use_parent_model_frame>0</use_parent_model_frame>
-          <limit>
-            <lower>-1e+16</lower>
-            <upper>1e+16</upper>
-          </limit>
-          <dynamics>
-            <spring_reference>0</spring_reference>
-            <spring_stiffness>0</spring_stiffness>
-          </dynamics>
-        </axis>
-      </joint>
+      </link> 
+      <link name="susp_front_right">
+  +     <pose>0.5 -0.298 0.15  0 0 0</pose>
+  +     <inertial>
+  +       <mass>0.5</mass>
+  +       <inertia>
+  +         <ixx>0.000208333333333333</ixx>
+  +         <iyy>0.000208333333333333</iyy>
+  +         <izz>0.000208333333333333</izz>
+  +         <ixy>0</ixy>
+  +         <ixz>0</ixz>
+  +         <iyz>0</iyz>
+  +       </inertia>
+  +     </inertial>
+  +     <collision name="collision">
+  +       <geometry>
+  +         <box>
+  +           <size>0.05 0.05 0.05</size>
+  +         </box>
+  +       </geometry>
+  +     </collision>
+  +     <visual name="visual">
+  +       <geometry>
+  +         <box>
+  +           <size>0.05 0.05 0.05</size>
+  +         </box>
+  +       </geometry>
+  +       <material>
+  +         <script>
+  +           <uri>file://media/materials/scripts/gazebo.material</uri>
+  +           <name>Gazebo/Black</name>
+  +         </script>
+  +       </material>
+  +     </visual>
+  +   </link>
+  +   <joint name="susp_front_right_prismatic" type="prismatic">
+  +     <parent>chassis</parent>
+  +     <child>susp_front_right</child>
+  +     <axis>
+  +       <xyz>0 0 -1</xyz>
+  +       <limit>
+  +         <lower>-0.3</lower>
+  +         <upper>0.3</upper>
+  +       </limit>
+  +       <dynamics>
+  +         <damping>100</damping>
+  +         <spring_stiffness>500</spring_stiffness>
+  +         <spring_reference>0.05</spring_reference>
+  +       </dynamics>
+  +     </axis>
+  +     <physics>
+  +       <ode>
+  +         <implicit_spring_damper>1</implicit_spring_damper>
+  +       </ode>
+  +     </physics>
+  +   </joint>
+  +   <link name="wheel_front_right">
+  +     <pose>0.5 -0.298 0.15  -1.5707963267949 0 0</pose>
+  +     <inertial>
+  +       <mass>0.5</mass>
+  +       <inertia>
+  +         <ixx>0.00307916666666667</ixx>
+  +         <iyy>0.00307916666666667</iyy>
+  +         <izz>0.005625</izz>
+  +         <ixy>0</ixy>
+  +         <ixz>0</ixz>
+  +         <iyz>0</iyz>
+  +       </inertia>
+  +     </inertial>
+  +     <collision name="collision">
+  +       <geometry>
+  +         <cylinder>
+  +           <radius>0.15</radius>
+  +           <length>0.08</length>
+  +         </cylinder>
+  +       </geometry>
++       </collision>
++       <visual name="visual">
++         <geometry>
++           <cylinder>
++             <radius>0.15</radius>
++             <length>0.08</length>
++           </cylinder>
++         </geometry>
++         <material>
++           <script>
++             <uri>file://media/materials/scripts/gazebo.material</uri>
++             <name>Gazebo/Black</name>
++           </script>
++         </material>
++       </visual>
++     </link>
++     <joint name="wheel_front_right_steer_spin" type="revolute">
++       <parent>susp_front_right</parent>
++       <child>wheel_front_right</child>
++       <axis>
++         <xyz>0 0 1</xyz>
++       </axis>
++     </joint>
++     
++     <link name="susp_front_left">
++       <pose>0.5 0.298 0.15  0 0 0</pose>
++       <inertial>
++         <mass>0.5</mass>
++         <inertia>
++           <ixx>0.000208333333333333</ixx>
++           <iyy>0.000208333333333333</iyy>
++           <izz>0.000208333333333333</izz>
++           <ixy>0</ixy>
++           <ixz>0</ixz>
++           <iyz>0</iyz>
++         </inertia>
++       </inertial>
++       <collision name="collision">
++         <geometry>
++           <box>
++             <size>0.05 0.05 0.05</size>
++           </box>
++         </geometry>
++       </collision>
++       <visual name="visual">
++         <geometry>
++           <box>
++             <size>0.05 0.05 0.05</size>
++           </box>
++         </geometry>
++         <material>
++           <script>
++             <uri>file://media/materials/scripts/gazebo.material</uri>
++             <name>Gazebo/Black</name>
++           </script>
++         </material>
++       </visual>
++     </link>
++     <joint name="susp_front_left_prismatic" type="prismatic">
++       <parent>chassis</parent>
++       <child>susp_front_left</child>
++       <axis>
++         <xyz>0 0 -1</xyz>
++         <limit>
++           <lower>-0.3</lower>
++           <upper>0.3</upper>
++         </limit>
++         <dynamics>
++           <damping>100</damping>
++           <spring_stiffness>500</spring_stiffness>
++           <spring_reference>0.05</spring_reference>
++         </dynamics>
++       </axis>
++       <physics>
++         <ode>
++           <implicit_spring_damper>1</implicit_spring_damper>
++         </ode>
++       </physics>
++     </joint>
++     <link name="wheel_front_left">
++       <pose>0.5 0.298 0.15  -1.5707963267949 0 0</pose>
++       <inertial>
++         <mass>0.5</mass>
++         <inertia>
++           <ixx>0.00307916666666667</ixx>
++           <iyy>0.00307916666666667</iyy>
++           <izz>0.005625</izz>
++           <ixy>0</ixy>
++           <ixz>0</ixz>
++           <iyz>0</iyz>
++         </inertia>
++       </inertial>
++       <collision name="collision">
++         <geometry>
++           <cylinder>
++             <radius>0.15</radius>
++             <length>0.08</length>
++           </cylinder>
++         </geometry>
++       </collision>
++       <visual name="visual">
++         <geometry>
++           <cylinder>
++             <radius>0.15</radius>
++             <length>0.08</length>
++           </cylinder>
++         </geometry>
++         <material>
++           <script>
++             <uri>file://media/materials/scripts/gazebo.material</uri>
++             <name>Gazebo/Black</name>
++           </script>
++         </material>
++       </visual>
++     </link>
++     <joint name="wheel_front_left_steer_spin" type="revolute">
++       <parent>susp_front_left</parent>
++       <child>wheel_front_left</child>
++       <axis>
++         <xyz>0 0 1</xyz>
++       </axis>
++     </joint>
++     
++     <link name="susp_rear_right">
++       <pose>-0.5 -0.298 0.15  0 0 0</pose>
++       <inertial>
++         <mass>0.5</mass>
++         <inertia>
++           <ixx>0.000208333333333333</ixx>
++           <iyy>0.000208333333333333</iyy>
++           <izz>0.000208333333333333</izz>
++           <ixy>0</ixy>
++           <ixz>0</ixz>
++           <iyz>0</iyz>
++         </inertia>
++       </inertial>
++       <collision name="collision">
++         <geometry>
++           <box>
++             <size>0.05 0.05 0.05</size>
++           </box>
++         </geometry>
++       </collision>
++       <visual name="visual">
++         <geometry>
++           <box>
++             <size>0.05 0.05 0.05</size>
++           </box>
++         </geometry>
++         <material>
++           <script>
++             <uri>file://media/materials/scripts/gazebo.material</uri>
++             <name>Gazebo/Black</name>
++           </script>
++         </material>
++       </visual>
++     </link>
++     <joint name="susp_rear_right_prismatic" type="prismatic">
++       <parent>chassis</parent>
++       <child>susp_rear_right</child>
++       <axis>
++         <xyz>0 0 -1</xyz>
++         <limit>
++           <lower>-0.3</lower>
++           <upper>0.3</upper>
++         </limit>
++         <dynamics>
++           <damping>100</damping>
++           <spring_stiffness>500</spring_stiffness>
++           <spring_reference>0.05</spring_reference>
++         </dynamics>
++       </axis>
++       <physics>
++         <ode>
++           <implicit_spring_damper>1</implicit_spring_damper>
++         </ode>
++       </physics>
++     </joint>
++     <link name="wheel_rear_right">
++       <pose>-0.5 -0.298 0.15  -1.5707963267949 0 0</pose>
++       <inertial>
++         <mass>0.5</mass>
++         <inertia>
++           <ixx>0.00307916666666667</ixx>
++           <iyy>0.00307916666666667</iyy>
++           <izz>0.005625</izz>
++           <ixy>0</ixy>
++           <ixz>0</ixz>
++           <iyz>0</iyz>
++         </inertia>
++       </inertial>
++       <collision name="collision">
++         <geometry>
++           <cylinder>
++             <radius>0.15</radius>
++             <length>0.08</length>
++           </cylinder>
++         </geometry>
++       </collision>
++       <visual name="visual">
++         <geometry>
++           <cylinder>
++             <radius>0.15</radius>
++             <length>0.08</length>
++           </cylinder>
++         </geometry>
++         <material>
++           <script>
++             <uri>file://media/materials/scripts/gazebo.material</uri>
++             <name>Gazebo/Black</name>
++           </script>
++         </material>
++       </visual>
++     </link>
++     <joint name="wheel_rear_right_spin" type="revolute">
++       <parent>susp_rear_right</parent>
++       <child>wheel_rear_right</child>
++       <axis>
++         <xyz>0 0 1</xyz>
++       </axis>
++     </joint>
++     
++     <link name="susp_rear_left">
++       <pose>-0.5 0.298 0.15  0 0 0</pose>
++       <inertial>
++         <mass>0.5</mass>
++         <inertia>
++           <ixx>0.000208333333333333</ixx>
++           <iyy>0.000208333333333333</iyy>
++           <izz>0.000208333333333333</izz>
++           <ixy>0</ixy>
++           <ixz>0</ixz>
++           <iyz>0</iyz>
++         </inertia>
++       </inertial>
++       <collision name="collision">
++         <geometry>
++           <box>
++             <size>0.05 0.05 0.05</size>
++           </box>
++         </geometry>
++       </collision>
++       <visual name="visual">
++         <geometry>
++           <box>
++             <size>0.05 0.05 0.05</size>
++           </box>
++         </geometry>
++         <material>
++           <script>
++             <uri>file://media/materials/scripts/gazebo.material</uri>
++             <name>Gazebo/Black</name>
++           </script>
++         </material>
++       </visual>
++     </link>
++     <joint name="susp_rear_left_prismatic" type="prismatic">
++       <parent>chassis</parent>
++       <child>susp_rear_left</child>
++       <axis>
++         <xyz>0 0 -1</xyz>
++         <limit>
++           <lower>-0.3</lower>
++           <upper>0.3</upper>
++         </limit>
++         <dynamics>
++           <damping>100</damping>
++           <spring_stiffness>500</spring_stiffness>
++           <spring_reference>0.05</spring_reference>
++         </dynamics>
++       </axis>
++       <physics>
++         <ode>
++           <implicit_spring_damper>1</implicit_spring_damper>
++         </ode>
++       </physics>
++     </joint>
++     <link name="wheel_rear_left">
++       <pose>-0.5 0.298 0.15  -1.5707963267949 0 0</pose>
++       <inertial>
++         <mass>0.5</mass>
++         <inertia>
++           <ixx>0.00307916666666667</ixx>
++           <iyy>0.00307916666666667</iyy>
++           <izz>0.005625</izz>
++           <ixy>0</ixy>
++           <ixz>0</ixz>
++           <iyz>0</iyz>
++         </inertia>
++       </inertial>
++       <collision name="collision">
++         <geometry>
++           <cylinder>
++             <radius>0.15</radius>
++             <length>0.08</length>
++           </cylinder>
++         </geometry>
++       </collision>
++       <visual name="visual">
++         <geometry>
++           <cylinder>
++             <radius>0.15</radius>
++             <length>0.08</length>
++           </cylinder>
++         </geometry>
++         <material>
++           <script>
++             <uri>file://media/materials/scripts/gazebo.material</uri>
++             <name>Gazebo/Black</name>
++           </script>
++         </material>
++       </visual>
++     </link>
++     <joint name="wheel_rear_left_spin" type="revolute">
++       <parent>susp_rear_left</parent>
++       <child>wheel_rear_left</child>
++       <axis>
++         <xyz>0 0 1</xyz>
++       </axis>
++     </joint>
+ 
       <pose frame=''>-0.2 0 -0.2 -0 -0 -0</pose>
       <plugin name="skid_steer_drive_controller_custom" filename="libgazebo_ros_skid_steer_drive_custom.so">
         <updateRate>0.0</updateRate>
@@ -348,7 +460,7 @@
         <wheelSeparation>0.596</wheelSeparation>
         <wheelDiameter>0.3</wheelDiameter>
         <robotBaseFrame>base_footprint</robotBaseFrame>
-        <torque>1</torque>
+        <torque>10</torque>
         <commandTopic>cmd_vel</commandTopic>
         <odometryTopic>odom</odometryTopic>
         <odometryFrame>odom</odometryFrame>
@@ -370,7 +482,7 @@
       <velocitydrift>0 0 0</velocitydrift>
       <velocitygaussiannoise>0.1 0.1 0.1</velocitygaussiannoise>
     </plugin>
-      <pose frame=''>0.2 0 0.2 0 0 0</pose>
+      <pose frame=''>0.2 0 0.3 0 0 0</pose>
       <link name='camera_link'>
         <inertial>
           <mass>0.1</mass>
@@ -465,7 +577,7 @@
             </image>
             <clip>
               <near>0.05</near>
-              <far>3</far>
+              <far>10</far>
             </clip>
           </camera>
         </sensor>
