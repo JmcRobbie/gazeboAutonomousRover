@@ -1,64 +1,41 @@
-  <sdf version="1.4">
+  <sdf version="1.6">
     <world name="default">
+
+      <physics type="ode">
+
+        <ode>
+          <solver>
+            <type>quick</type>
+            <iters>150</iters>
+            <friction_model>cone_model</friction_model>
+          </solver> 
+          <constraints>
+            <contact_surface_layer>0.01</contact_surface_layer>
+          </constraints>
+        </ode>
+
+      </physics>
+
+      <scene>
+        <sky>
+          <clouds>
+            <speed>6</speed>
+          </clouds>
+        </sky>
+      </scene>
       <include>
         <uri>model://sun</uri>
       </include>
-    <model name='ground_plane'>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>100 100</size>
-            </plane>
-          </geometry>
-          <surface>
-            <friction>
-              <ode>
-                <mu>100</mu>
-                <mu2>50</mu2>
-              </ode>
-            </friction>
-            <bounce/>
-            <contact>
-              <ode/>
-            </contact>
-          </surface>
-          <max_contacts>10</max_contacts>
-        </collision>
-        <visual name='visual'>
-          <cast_shadows>0</cast_shadows>
-          <geometry>
-            <plane>
-              <normal>0 0 1</normal>
-              <size>1000 1000</size>
-            </plane>
-          </geometry>
-          <material>
-            <script>
-              <uri>file://media/materials/scripts/gazebo.material</uri>
-              <name>Gazebo/Grey</name>
-            </script>
-          </material>
-        </visual>
-        <velocity_decay>
-          <linear>0</linear>
-          <angular>0</angular>
-        </velocity_decay>
-        <self_collide>0</self_collide>
-        <kinematic>0</kinematic>
-        <gravity>1</gravity>
-      </link>
-    </model>
-
+      <include>
+        <uri>model://utah_desert</uri>
+      </include>
       <include>
         <uri>model://ar_post</uri>
         <pose>10 0 -0.7 0 0 0</pose>
       </include>
 
       <model name="AR Post Leg 2">
-        <pose>80 -70 -0.7 0 0 0</pose>
+        <pose>80 -70 0 0 0 0</pose>
         <static>true</static>
         <link name="link">
         <collision name="collision">
@@ -86,7 +63,7 @@
       </model>
 
       <model name="AR Post Leg 3">
-        <pose>150.0 0 -0.7 0 0 0</pose>
+        <pose>150.0 0 0 0 0 0</pose>
         <static>true</static>
         <link name="link">
         <collision name="collision">
@@ -170,7 +147,7 @@
       </model>
 
       <model name="AR Post Leg 5 Left">
-        <pose>82 80 -0.7 0 0 0</pose>
+        <pose>82 80 0 0 0 0</pose>
         <static>true</static>
         <link name="link">
         <collision name="collision">
@@ -198,7 +175,7 @@
       </model>
 
       <model name="AR Post Leg 5 Right">
-        <pose>80 80 -0.7 0 0 0</pose>
+        <pose>80 80 0 0 0 0</pose>
         <static>true</static>
         <link name="link">
         <collision name="collision">
@@ -226,7 +203,7 @@
       </model>
 
       <model name="AR Post Leg 6 Left">
-        <pose>-254 -100 -0.7 0 0 0</pose>
+        <pose>-254 -100 0.5 0 0 0</pose>
         <static>true</static>
         <link name="link">
         <collision name="collision">
@@ -254,7 +231,7 @@
       </model>
 
       <model name="AR Post Leg 6 Right">
-        <pose>-252 -100 -0.7 0 0 0</pose>
+        <pose>-252 -100 0.5 0 0 0</pose>
         <static>true</static>
         <link name="link">
         <collision name="collision">
@@ -282,7 +259,7 @@
       </model>
 
       <model name="AR Post Leg 7 Left">
-        <pose>56 -78 -0.7 0 0 0</pose>
+        <pose>56 -78 0 0 0 0</pose>
         <static>true</static>
         <link name="link">
         <collision name="collision">
@@ -310,7 +287,7 @@
       </model>
 
       <model name="AR Post Leg 7 Right">
-        <pose>56 -76 -0.7 0 0 0</pose>
+        <pose>56 -76 0 0 0 0</pose>
         <static>true</static>
         <link name="link">
         <collision name="collision">
