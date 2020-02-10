@@ -1,4 +1,4 @@
-# gazebo autonomous simulation for Rover
+# Gazebo simulation for an autonomous Rover
 A repo to manage the codebase for the testing of a rover in a simulated space. 
 
 ### Rover in simulated environment.
