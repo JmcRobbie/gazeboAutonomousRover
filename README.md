@@ -2,7 +2,7 @@
 A repo to manage the codebase for the testing of a rover in a simulated space. 
 
 ### Rover in simulated environment.
-![alt text](https://github.com/JmcRobbie/gazeboAutonomousRover/blob/hotfix/readme_prettify/doc/imgs/demo_image.png "Logo Title Text 1")
+![alt text](https://github.com/JmcRobbie/gazeboAutonomousRover/blob/hotfix/readme_prettify/doc/imgs/demo_image.png "Simulated rover in environment")
 
 
 ## Environment and Dependencies: 
