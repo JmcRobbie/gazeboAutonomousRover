@@ -1,6 +1,10 @@
-# gazebo autonomous simulation for Rover
+# Gazebo simulation for an autonomous Rover
 A repo to manage the codebase for the testing of a rover in a simulated space. 
-Clone this repo to src folder of your catkin workspace. 
+
+### Rover in simulated environment.
+![alt text](https://github.com/JmcRobbie/gazeboAutonomousRover/blob/hotfix/readme_prettify/doc/imgs/demo_image.png "Simulated rover in environment")
+
+
 ## Environment and Dependencies: 
 
 Everything runs on Ubuntu 18.04 LTS
@@ -8,6 +12,7 @@ Everything runs on Ubuntu 18.04 LTS
 * Install ROS Melodic: http://wiki.ros.org/melodic/Installation/Ubuntu
 * Install catkin: `$ sudo apt-get install ros-melodic-catkin`
 * Create a catkin workspace: http://wiki.ros.org/catkin/Tutorials/create_a_workspace
+* Clone this repo to src folder of your catkin workspace. 
 * If the ROS installation didn't install gazebo then follow: http://gazebosim.org/tutorials?tut=install_ubuntu&cat=install
 * Install Gazebo_ros_pkgs:
   * `$ sudo apt-get install ros-melodic-gazebo-ros-pkgs ros-melodic-gazebo-ros-control`
@@ -44,4 +49,5 @@ Everything runs on Ubuntu 18.04 LTS
   * Launch 2D LIDAR rover in empty world:`$ roslaunch autonomous_sim empty_world.launch model:=2d_lidar_rover`
 * The competition world contains all 7 legs of the competition with the corresponding ar tags. Use `$ roslaunch autonomous_sim competition.launch` to launch the world with basic rover (or override with `model:=`).
 * With the autonomous package from the https://github.com/novarover/autonomous repo (checkout to the correct branch), `$ roslaunch autonomous simulation_bug2.launch` to run simulation of bug 2 motion planning algorithm. 
-
+## Troubleshooting
+* If the environment is stripey yellow and black try running: `$rm -rf ~/.gazebo/pages/`
