@@ -1,6 +1,8 @@
 # gazebo autonomous simulation for Rover
 A repo to manage the codebase for the testing of a rover in a simulated space. 
-Reference-style: 
+
+
+
 ![alt text][logo]
 
 [logo]: https://github.com/JmcRobbie/gazeboAutonomousRover/doc/imgs/demo_img.png "Simulated rover in mars environment"
