@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sdf version='1.6'>
+  <model name='wombat'>
+    <include>
+      <uri>model://basic_rover</uri>
+      <name>base</name>
+    </include>
+    <model name='cart_front_steer'>
+
+    <link name='chassis'>
+        <pose frame=''>0 0 0.3 0 -0 0</pose>
+        <inertial>
+          <pose frame=''>0.1 0 0 0 -0 0</pose>
+          <mass>10</mass>
+          <inertia>
+            <ixx>0.216667</ixx>
+            <iyy>0.841667</iyy>
+            <izz>1.04167</izz>
+            <ixy>0</ixy>
+            <ixz>0</ixz>
+            <iyz>0</iyz>
+          </inertia>
+        </inertial>
+        <visual name='visual'>
+          <geometry>
+            <mesh>
+              <uri>model://wombat/meshes/wombat.dae</uri>
+            </mesh>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link> 
+    </model>
+  </model>
+</sdf>
