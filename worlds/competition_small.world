@@ -1,0 +1,317 @@
+  <sdf version="1.6">
+    <world name="default">
+
+      <physics type="ode">
+
+        <ode>
+          <solver>
+            <type>quick</type>
+            <iters>150</iters>
+            <friction_model>cone_model</friction_model>
+          </solver> 
+          <constraints>
+            <contact_surface_layer>0.01</contact_surface_layer>
+          </constraints>
+        </ode>
+
+      </physics>
+
+      <scene>
+        <sky>
+          <clouds>
+            <speed>6</speed>
+          </clouds>
+        </sky>
+      </scene>
+      <include>
+        <uri>model://sun</uri>
+      </include>
+      <include>
+        <uri>model://utah_desert_small</uri>
+      </include>
+      <include>
+        <uri>model://ar_post</uri>
+        <pose>10 0 -0.7 0 0 0</pose>
+      </include>
+
+      <model name="AR Post Leg 2">
+        <pose>80 -70 0 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg2</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 3">
+        <pose>150.0 0 0 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg3</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 4 Left">
+        <pose>200 32 -0.7 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg4L</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 4 Right">
+        <pose>200 34 -0.7 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg4R</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 5 Left">
+        <pose>82 80 0 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg5L</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 5 Right">
+        <pose>80 80 0 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg5R</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 6 Left">
+        <pose>-254 -100 0.5 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg6L</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 6 Right">
+        <pose>-252 -100 0.5 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg6R</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 7 Left">
+        <pose>56 -78 0 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg7L</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+
+      <model name="AR Post Leg 7 Right">
+        <pose>56 -76 0 0 0 0</pose>
+        <static>true</static>
+        <link name="link">
+        <collision name="collision">
+          <geometry>
+            <mesh>
+              <uri>model://ar_post/meshes/ar_post.dae</uri>
+            </mesh>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+          <mesh>
+            <uri>model://ar_post/meshes/ar_post.dae</uri>
+          </mesh>
+          </geometry>
+          <material>
+          <script>
+            <uri>model://ar_post/materials/scripts</uri>
+            <uri>model://ar_post/materials/textures</uri>
+            <name>ARLeg7R</name>
+          </script>
+          </material>
+        </visual>
+        </link>
+      </model>
+    </world>
+  </sdf>
