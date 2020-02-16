@@ -34,6 +34,7 @@
  * \author  Zdenek Materna (imaterna@fit.vutbr.cz)
  *
  * $ Id: 06/25/2013 11:23:40 AM materna $
+ * 
  */
 
 
@@ -62,6 +63,8 @@ namespace gazebo {
     LEFT_FRONT=1,
     RIGHT_REAR=2,
     LEFT_REAR=3,
+    RIGHT_MID=4,
+    LEFT_MID=5,
   };
 
   GazeboRosSkidSteerDriveCustom::GazeboRosSkidSteerDriveCustom() {}
@@ -107,20 +110,20 @@ namespace gazebo {
     }
 
     this->right_front_joint_name_ = "right_front_joint";
-        if (!_sdf->HasElement("rightFrontJoint")) {
-          ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) missing <rightFrontJoint>, defaults to \"%s\"",
-              this->robot_namespace_.c_str(), this->right_front_joint_name_.c_str());
-        } else {
-          this->right_front_joint_name_ = _sdf->GetElement("rightFrontJoint")->Get<std::string>();
-        }
+    if (!_sdf->HasElement("rightFrontJoint")) {
+      ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) missing <rightFrontJoint>, defaults to \"%s\"",
+          this->robot_namespace_.c_str(), this->right_front_joint_name_.c_str());
+    } else {
+      this->right_front_joint_name_ = _sdf->GetElement("rightFrontJoint")->Get<std::string>();
+    }
 
-	this->left_rear_joint_name_ = "left_rear_joint";
-	if (!_sdf->HasElement("leftRearJoint")) {
-	  ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) missing <leftRearJoint>, defaults to \"%s\"",
-		  this->robot_namespace_.c_str(), this->left_rear_joint_name_.c_str());
-	} else {
-	  this->left_rear_joint_name_ = _sdf->GetElement("leftRearJoint")->Get<std::string>();
-	}
+    this->left_rear_joint_name_ = "left_rear_joint";
+    if (!_sdf->HasElement("leftRearJoint")) {
+      ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) missing <leftRearJoint>, defaults to \"%s\"",
+        this->robot_namespace_.c_str(), this->left_rear_joint_name_.c_str());
+    } else {
+      this->left_rear_joint_name_ = _sdf->GetElement("leftRearJoint")->Get<std::string>();
+    }
 
     this->right_rear_joint_name_ = "right_rear_joint";
     if (!_sdf->HasElement("rightRearJoint")) {
@@ -128,6 +131,22 @@ namespace gazebo {
           this->robot_namespace_.c_str(), this->right_rear_joint_name_.c_str());
     } else {
       this->right_rear_joint_name_ = _sdf->GetElement("rightRearJoint")->Get<std::string>();
+    }
+
+    this->left_mid_joint_name_ = "left_mid_joint";
+    if (!_sdf->HasElement("leftMidJoint")) {
+      ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) missing <leftMidJoint>, defaults to \"%s\"",
+        this->robot_namespace_.c_str(), this->left_mid_joint_name_.c_str());
+    } else {
+      this->left_mid_joint_name_ = _sdf->GetElement("leftMidJoint")->Get<std::string>();
+    }
+
+    this->right_mid_joint_name_ = "right_mid_joint";
+    if (!_sdf->HasElement("rightMidJoint")) {
+      ROS_WARN_NAMED("skid_steer_drive", "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) missing <rightMidJoint>, defaults to \"%s\"",
+          this->robot_namespace_.c_str(), this->right_mid_joint_name_.c_str());
+    } else {
+      this->right_mid_joint_name_ = _sdf->GetElement("rightMidJoint")->Get<std::string>();
     }
 
 
@@ -258,7 +277,9 @@ namespace gazebo {
     wheel_speed_[RIGHT_FRONT] = 0;
     wheel_speed_[LEFT_FRONT] = 0;
     wheel_speed_[RIGHT_REAR] = 0;
-	wheel_speed_[LEFT_REAR] = 0;
+	  wheel_speed_[LEFT_REAR] = 0;
+	  wheel_speed_[RIGHT_MID] = 0;
+	  wheel_speed_[LEFT_MID] = 0;
 
     x_ = 0;
     rot_ = 0;
@@ -268,6 +289,8 @@ namespace gazebo {
     joints[RIGHT_FRONT] = this->parent->GetJoint(right_front_joint_name_);
     joints[LEFT_REAR] = this->parent->GetJoint(left_rear_joint_name_);
     joints[RIGHT_REAR] = this->parent->GetJoint(right_rear_joint_name_);
+    joints[LEFT_MID] = this->parent->GetJoint(left_mid_joint_name_);
+    joints[RIGHT_MID] = this->parent->GetJoint(right_mid_joint_name_);
 
     if (!joints[LEFT_FRONT]) {
       char error[200];
@@ -286,18 +309,34 @@ namespace gazebo {
     }
 
     if (!joints[LEFT_REAR]) {
-	 char error[200];
-	 snprintf(error, 200,
-		 "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) couldn't get left rear hinge joint named \"%s\"",
-		 this->robot_namespace_.c_str(), this->left_rear_joint_name_.c_str());
-	 gzthrow(error);
-   }
+    char error[200];
+    snprintf(error, 200,
+      "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) couldn't get left rear hinge joint named \"%s\"",
+      this->robot_namespace_.c_str(), this->left_rear_joint_name_.c_str());
+    gzthrow(error);
+    }
 
-   if (!joints[RIGHT_REAR]) {
+    if (!joints[RIGHT_REAR]) {
+    char error[200];
+    snprintf(error, 200,
+      "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) couldn't get right rear hinge joint named \"%s\"",
+      this->robot_namespace_.c_str(), this->right_rear_joint_name_.c_str());
+    gzthrow(error);
+    }
+
+    if (!joints[LEFT_MID]) {
+    char error[200];
+    snprintf(error, 200,
+      "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) couldn't get left mid hinge joint named \"%s\"",
+      this->robot_namespace_.c_str(), this->left_mid_joint_name_.c_str());
+    gzthrow(error);
+    }
+
+   if (!joints[RIGHT_MID]) {
 	 char error[200];
 	 snprintf(error, 200,
-		 "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) couldn't get right rear hinge joint named \"%s\"",
-		 this->robot_namespace_.c_str(), this->right_rear_joint_name_.c_str());
+		 "GazeboRosSkidSteerDriveCustom Plugin (ns = %s) couldn't get right mid hinge joint named \"%s\"",
+		 this->robot_namespace_.c_str(), this->right_mid_joint_name_.c_str());
 	 gzthrow(error);
    }
 
@@ -381,11 +420,15 @@ namespace gazebo {
       joints[RIGHT_FRONT]->SetParam("vel", 0, wheel_speed_[RIGHT_FRONT] / (wheel_diameter_ / 2.0));
       joints[LEFT_REAR]->SetParam("vel", 0, wheel_speed_[LEFT_REAR] / (wheel_diameter_ / 2.0));
       joints[RIGHT_REAR]->SetParam("vel", 0, wheel_speed_[RIGHT_REAR] / (wheel_diameter_ / 2.0));
+      joints[LEFT_MID]->SetParam("vel", 0, wheel_speed_[LEFT_MID] / (wheel_diameter_ / 2.0));
+      joints[RIGHT_MID]->SetParam("vel", 0, wheel_speed_[RIGHT_MID] / (wheel_diameter_ / 2.0));
 #else
       joints[LEFT_FRONT]->SetVelocity(0, wheel_speed_[LEFT_FRONT] / (wheel_diameter_ / 2.0));
       joints[RIGHT_FRONT]->SetVelocity(0, wheel_speed_[RIGHT_FRONT] / (wheel_diameter_ / 2.0));
       joints[LEFT_REAR]->SetVelocity(0, wheel_speed_[LEFT_REAR] / (wheel_diameter_ / 2.0));
       joints[RIGHT_REAR]->SetVelocity(0, wheel_speed_[RIGHT_REAR] / (wheel_diameter_ / 2.0));
+      joints[LEFT_MID]->SetVelocity(0, wheel_speed_[LEFT_MID] / (wheel_diameter_ / 2.0));
+      joints[RIGHT_MID]->SetVelocity(0, wheel_speed_[RIGHT_MID] / (wheel_diameter_ / 2.0));
 #endif
 
       last_update_time_+= common::Time(update_period_);
@@ -410,9 +453,11 @@ namespace gazebo {
 
     wheel_speed_[RIGHT_FRONT] = vr + va * wheel_separation_ / 2.0;
     wheel_speed_[RIGHT_REAR] = vr + va * wheel_separation_ / 2.0;
+    wheel_speed_[RIGHT_MID] = vr + va * wheel_separation_ / 2.0;
 
     wheel_speed_[LEFT_FRONT] = vr - va * wheel_separation_ / 2.0;
     wheel_speed_[LEFT_REAR] = vr - va * wheel_separation_ / 2.0;
+    wheel_speed_[LEFT_MID] = vr - va * wheel_separation_ / 2.0;
 
   }
 
@@ -515,18 +560,18 @@ namespace gazebo {
 
   void GazeboRosSkidSteerDriveCustom::publishEncoderData() {
     autonomous_sim::EncoderData msg;
-    // msg.talon0Position = joints[LEFT_FRONT].Position();
-    msg.talon1Position = joints[LEFT_FRONT]->Position(1);
+    msg.talon0Position = joints[LEFT_MID]->Position();
+    msg.talon1Position = joints[LEFT_FRONT]->Position();
     msg.talon2Position = joints[LEFT_REAR]->Position();
-    // msg.talon3Position = joints[LEFT_FRONT]->Position();
-    msg.talon4Position = joints[RIGHT_FRONT]->Position(1);
+    msg.talon3Position = joints[RIGHT_MID]->Position();
+    msg.talon4Position = joints[RIGHT_FRONT]->Position();
     msg.talon5Position = joints[RIGHT_REAR]->Position();
 
-    // msg.talon0Velocity = joints[LEFT_FRONT]->GetVelocity();
-    msg.talon1Velocity = joints[LEFT_FRONT]->GetVelocity(1);
+    msg.talon0Velocity = joints[LEFT_MID]->GetVelocity(0);
+    msg.talon1Velocity = joints[LEFT_FRONT]->GetVelocity(0);
     msg.talon2Velocity = joints[LEFT_REAR]->GetVelocity(0);
-    // msg.talon3Velocity = joints[LEFT_FRONT]->GetVelocity(0);
-    msg.talon4Velocity = joints[RIGHT_FRONT]->GetVelocity(1);
+    msg.talon3Velocity = joints[RIGHT_MID]->GetVelocity(0);
+    msg.talon4Velocity = joints[RIGHT_FRONT]->GetVelocity(0);
     msg.talon5Velocity = joints[RIGHT_REAR]->GetVelocity(0);
 
     encoder_data_publisher.publish(msg);
