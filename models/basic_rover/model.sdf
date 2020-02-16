@@ -475,12 +475,12 @@
       <alwayson>1</alwayson>
       <updaterate>10.0</updaterate>
       <bodyname>gps_link</bodyname>
+      <gaussianNoise>0.3 0.3 0.3</gaussianNoise>
       <topicname>fix</topicname>
       <velocitytopicname>fixvelocity</velocitytopicname>
-      <drift>5.0 5.0 5.0</drift>
-      <gaussiannoise>0.1 0.1 0.1</gaussiannoise>
+      <drift>0.0 0.0 0.0</drift>
       <velocitydrift>0 0 0</velocitydrift>
-      <velocitygaussiannoise>0.1 0.1 0.1</velocitygaussiannoise>
+      <velocitygaussiannoise>1 1 1</velocitygaussiannoise>
     </plugin>
       <pose frame=''>0.2 0 0.3 0 0 0</pose>
       <link name='camera_link'>
