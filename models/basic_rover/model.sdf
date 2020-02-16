@@ -38,9 +38,9 @@
         </collision>
         <visual name='visual'>
           <geometry>
-            <mesh>
-              <uri>model://wombat/meshes/wombat.dae</uri>
-            </mesh>
+            <box>
+              <size>1.5 0.5 0.1</size>
+            </box>
           </geometry>
           <material>
             <script>
@@ -457,6 +457,8 @@
         <rightFrontJoint>wheel_front_right_steer_spin</rightFrontJoint>
         <leftRearJoint>wheel_rear_left_spin</leftRearJoint>
         <rightRearJoint>wheel_rear_right_spin</rightRearJoint>
+        <leftMidJoint>wheel_rear_left_spin</leftMidJoint>
+        <rightMidJoint>wheel_rear_right_spin</rightMidJoint>
         <wheelSeparation>0.596</wheelSeparation>
         <wheelDiameter>0.3</wheelDiameter>
         <robotBaseFrame>base_footprint</robotBaseFrame>
