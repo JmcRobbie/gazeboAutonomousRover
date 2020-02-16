@@ -6,7 +6,7 @@
   <arg name="gui" default="true"/>
   <arg name="headless" default="false"/>
   <arg name="debug" default="false"/>
-  <arg name="model" default="basic_rover"/>
+  <arg name="model" default="wombat"/>
   <arg name="verbose" default="true" />
 
   <!-- Launch world -->
