@@ -750,12 +750,12 @@
             <pointCloudTopicName>/camera/depth/points</pointCloudTopicName>
             <frameName>camera_link</frameName>
             <pointCloudCutoff>0.5</pointCloudCutoff>
-            <pointCloudCutoffMax>3.0</pointCloudCutoffMax>
-            <distortionK1>0</distortionK1>
-            <distortionK2>0</distortionK2>
-            <distortionK3>0</distortionK3>
-            <distortionT1>0</distortionT1>
-            <distortionT2>0</distortionT2>
+            <pointCloudCutoffMax>5.0</pointCloudCutoffMax>
+            <distortionK1>1.1</distortionK1>
+            <distortionK2>1.1</distortionK2>
+            <distortionK3>1.1</distortionK3>
+            <distortionT1>1.1</distortionT1>
+            <distortionT2>1.1</distortionT2>
             <CxPrime>0</CxPrime>
             <Cx>0</Cx>
             <Cy>0</Cy>
@@ -766,8 +766,8 @@
           <camera name='__default__'>
             <horizontal_fov>1.0472</horizontal_fov>
             <image>
-              <width>640</width>
-              <height>480</height>
+              <width>100</width>
+              <height>75</height>
               <format>R8G8B8</format>
             </image>
             <clip>
